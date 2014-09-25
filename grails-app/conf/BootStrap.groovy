@@ -1,4 +1,4 @@
-import com.tekdays.TekEvent
+import com.tekdays.*
 
 class BootStrap {
 
@@ -31,6 +31,19 @@ class BootStrap {
     	if(!event2.save()) {
     		event2.errors.allErrors.each { error ->
     			println "An error occured with event2: ${error}"
+    		}
+    	}
+
+    	def tekUser1 = new TekUser(fullName:'John Doe', 
+    		userName:'johnny',
+    		password:'passw0rd',
+    		email:'john@unknown.com',
+    		website:'http://www.unknown.com',
+    		bio:'What ever put in here')
+    	//check that I can save this user ot the in-memory database
+    	if(!tekUser1.save()) {
+    			tekUser1.errors.allErrors.each { error ->
+    			println "An error occured with event1: ${error}" 
     		}
     	}
 	}
