@@ -9,9 +9,18 @@ class TekEvent {
 
 	Date startDate
 	Date endDate
-	String description
+	String description 
 
     static constraints = {
+    	// define display order of attributes
+    	// listing name first makes it a link by default
+    	name()
+    	city()
+    	description maxSize:5000
+    	organizer()
+    	venue()
+    	startDate()
+    	endDate()
     }
 
     String toString() {
